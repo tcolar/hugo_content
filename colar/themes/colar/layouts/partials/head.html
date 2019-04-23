@@ -1,0 +1,25 @@
+{{ $bootstrap := resources.Get "/css/bootstrap.min.css" }}
+{{ $awesome := resources.Get "/css/font-awesome.css" }}
+{{ $bootstrap2 := resources.Get "/css/bootstrap-responsive.min.css" }}
+{{ $standard := resources.Get "/css/standard.css" }}
+{{ $template := resources.Get "/css/template.css" }}
+{{ $css := slice $bootstrap $awesome $bootstrap2 $standard $template | resources.Concat "css/bundle.css" }}
+{{ $style := $css | resources.Minify }}
+
+{{ $jqueryjs := resources.Get "/js/jquery.min.js" }}
+{{ $bootstrapjs := resources.Get "/js/bootstrap.min.js" }}
+{{ $templatejs := resources.Get "/js/template.js" }}
+{{ $js := slice $jqueryjs $bootstrapjs $templatejs | resources.Concat "js/bundle.js" }}
+{{ $jsmin := $js | resources.Minify }}
+
+<head>
+  <title>{{ .Title }}</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index,follow" />
+  <meta name="keywords" content='{{.Title}}'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='stylesheet' type='text/css' href='{{ $style.RelPermalink }}' />
+  <script type="text/javascript" src="{{ $jsmin.RelPermalink }}"></script>
+</head>

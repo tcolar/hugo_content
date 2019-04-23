@@ -1,0 +1,83 @@
+<div class="navbar navbar">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="#"><img src="/me_48.png" width="24" height="24" /> Colar.net</a>
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="float:right; width:110px">
+        <a
+          class="addthis_button_twitter_follow"
+          addthis:userid="tcolar"
+          style="color:#ffffff; border-bottom:0px;"
+        ></a>
+        <a
+          class="addthis_button_linkedin_follow"
+          addthis:userid="tcolar"
+          style="color:#ffffff; border-bottom:0px"
+        ></a>
+        <a
+          class="addthis_button_facebook_follow"
+          addthis:userid="thibaut.colar"
+          style="color:#ffffff; border-bottom:0px"
+        ></a>
+      </div>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li home>
+            <a href="home"><i class="icon-home"></i>Home</a>
+          </li>
+          <li about>
+            <a href="blog"><i class="icon-book"></i>Blog</a>
+          </li>
+          <li portfolio>
+            <a href="software"><i class="icon-github"></i>Software</a>
+          </li>
+          <li products>
+            <a href="projects"><i class="icon-legal"></i>Projects</a>
+          </li>
+          <li blog>
+            <a href="about_me"><i class="icon-info-sign"></i>About me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div id="phonerow" class="row-fluid">
+    <div class="span3 hidden-phone">
+      <div class="well sidebar-nav">
+        Recent posts:
+        <ul class="nav nav-list">
+          {{ range first 20 .Data.Pages.ByDate }}
+          <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+        Tags:
+        <ul class="nav nav-list">
+          {{ range.Params.tags }}
+          <li>
+            <a href="{{ $.Site.BaseURL }}tags/{{ . }}/">{{ . }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    <div class="span9">
+      <div class="row-fluid">
+        <!-- Begin addThis -->
+        <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+        </div>
+        <script type="text/javascript">
+          var addthis_config = { data_track_addressbar: true };
+        </script>
+        <script
+          type="text/javascript"
+          src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=jotwiki"
+          async="async"
+        ></script>
+        <!-- End addThis -->
