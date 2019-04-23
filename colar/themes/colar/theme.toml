@@ -1,0 +1,9 @@
+name = "Colar"
+license = "MIT"
+description = ""
+homepage = "http://colar.net/"
+min_version = "0.41"
+
+[author]
+  name = "Thibaut Colar"
+  homepage = "http://colar.net/"
