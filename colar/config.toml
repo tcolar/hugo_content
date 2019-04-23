@@ -1,0 +1,5 @@
+baseURL = "http://colar.net/"
+languageCode = "en-us"
+title = "Colar.net"
+theme = "colar"
+pygmentsCodeFences = true
